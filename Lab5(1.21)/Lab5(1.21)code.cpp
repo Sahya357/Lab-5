@@ -1,32 +1,35 @@
-﻿#include <stdio.h>
+#include <stdio.h>
 #include <locale.h>
+
 int main() {
-	setlocale(LC_ALL, "Ukrainian");
+    setlocale(LC_ALL, "Ukrainian");
+
     const int n = 10;
     int a[n];
-    int x , b ;
-    printf("Ведіть x та y, x<y\n");
-	scanf_s("%d %d", &x, &b);
-    if (x >= b)
-    {
-        printf("Помилка. x має бути менше за y");
-        return 1;
-	}
-   const int colCount = 5;
-   int count = 0;
-  
-    for (int i = 0; i < colCount; i++)
-    {
-        printf("a[%d]=", i);
-        scanf_s("%d", &a[i]);
-        if (a[i] >= x && a[i] <= b)
-        {
-			count++;
-
+    int x, b;
+    int count = 0;
+	int corect_input = 1;
+    while (corect_input == 1) {
+        printf("Ведiть x та y, x<y\n");
+        scanf_s("%d %d", &x, &b);
+        if (x >= b) {
+            printf("Помилка. x має бути менше за y");
+            
         }
-    }
-  printf("Кількість елементів масиву що знаходяться у межах [%d, %d],  %d", x, b, count);
-  return 0;
+        else if (b >= x) {
+            for (int i = 0; i < n; i++) {
+                printf("a[%d]=", i);
+                scanf_s("%d", &a[i]);
 
+                if (a[i] >= x && a[i] <= b) {
+                    count++;
+                }
+            }
+            printf("Кiлькiсть елементiв масиву що знаходяться у межах [%d, %d]: %d\n", x, b, count);
+        }
+       
+		printf("Бажаєте повторити? (1 - так, 0 - нi)");
+		scanf_s("%d", &corect_input);
+    }
 
 }
