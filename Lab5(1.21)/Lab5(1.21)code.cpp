@@ -13,7 +13,7 @@ int main() {
         printf("Ведiть x та y, x<y\n");
         scanf_s("%d %d", &x, &b);
         if (x >= b) {
-            printf("Помилка. x має бути менше за y");
+            printf("Помилка. x має бути менше за y\n");
             
         }
         else if (b >= x) {
